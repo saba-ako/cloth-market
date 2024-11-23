@@ -1,0 +1,66 @@
+.cont {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.cont div {
+    padding: 0 50px;
+    text-align: center;
+    background-color: whitesmoke;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.cont div div {
+    width: 100%;
+    gap: 20px;
+}
+
+.cont h1 {
+    font-size: 50px;
+}
+
+.cont p {
+    font-size: 30px;
+}
+
+.cont input {
+    all: unset;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 30px;
+    border-bottom: 1px solid;
+}
+
+.cont textarea {
+    width: 100%;
+    background-color: whitesmoke;
+    border: none;
+    font-size: 20px;
+    padding: 10px;
+    border-bottom: 1px solid;
+}
+
+.cont button {
+    background-color: #4a4a4a;
+    color: white;
+    font-size: 20px;
+    padding: 10px 0;
+    width: 100%;
+    cursor: pointer;
+    border: none;
+}
+
+.cont button:hover {
+    background-color: #858583;
+}
+
+.cont button:active {
+    background-color: #959595;
+}

@@ -1,0 +1,17 @@
+.btn {
+    all: unset;
+    cursor: pointer;
+}
+
+.btn:hover {
+    text-decoration: underline;
+    color: rgb(67, 66, 66);
+}
+
+.btn:active {
+    color: red;
+}
+
+.clicked {
+    color: blue;
+}

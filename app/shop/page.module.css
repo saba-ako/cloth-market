@@ -1,0 +1,38 @@
+.cont {
+    width: 100%;    
+    min-height: 100vh;
+    display: flex;
+}
+
+.right {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+}
+
+.board {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.box {
+    cursor: pointer;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: whitesmoke;
+    padding: 20px;
+}
+
+.product  {
+    width: 200px;
+    height: 200px;
+}
