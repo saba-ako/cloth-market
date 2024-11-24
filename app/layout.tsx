@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Footer } from "./components/footer/footer";
 import { Header } from "./components/header/header";
+import { RecoilRoot } from "recoil";
 
 export const metadata = {
   title: 'Cielo Apparel-best cloth market'
@@ -14,10 +15,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Header />
-        <main className="main">
-          {children}
-        </main>
+        <RecoilRoot>
+          <Header />
+          <main className="main">
+            {children}
+          </main>
+        </RecoilRoot>
         <Footer />
       </body>
     </html>
