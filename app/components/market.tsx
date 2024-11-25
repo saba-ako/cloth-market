@@ -2,7 +2,6 @@ import Link from 'next/link';
 import { Latest } from './latest/latest';
 import styles from './market.module.css';
 import { Slide } from './slideshow/slide';
-import { Header } from './header/header';
 
 export const Market = () => {
     return <div className={styles.cont}>
