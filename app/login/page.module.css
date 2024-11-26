@@ -60,3 +60,13 @@
 .login:active {
     background-color: rgb(4, 4, 137);
 }
+
+.otherOptions {
+    display: flex;
+    gap: 30px;
+}
+
+.otherOptions img {
+    width: 30px;
+    cursor: pointer;
+}

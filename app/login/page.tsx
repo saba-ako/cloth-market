@@ -3,6 +3,9 @@
 import { useState } from 'react';
 import styles from './page.module.css';
 import Link from 'next/link';
+import fbIcon from '../components/images/fb icon.ico';
+import twitterIcon from '../components/images/twitter icon.png';
+import gmailIcom from '../components/images/gmail icon.ico';
 
 export default () => {
 
@@ -23,7 +26,7 @@ export default () => {
     }
     
     function login() {
-        console.log(email, password);
+        console.log(`email ${email}, password ${password}`);
     };
 
     return <div className={styles.cont}>
@@ -55,6 +58,16 @@ export default () => {
                         >Log In</button>
                     </div>
                     <Link href={'../forgetPassword'}>Forget Password?</Link>
+                    <h2>Or sign up using</h2>
+                    <div className={styles.otherOptions}>
+                        <img src={fbIcon.src} />
+                        <img src={twitterIcon.src} />
+                        <img src={gmailIcom.src} />
+                    </div>
+                    <h2>Don't have an account?</h2>
+                    <Link href={'../createAccount'} >Create account!</Link>
                 </div>
             </div>
+
+            
 }
