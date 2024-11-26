@@ -6,55 +6,42 @@ import Link from 'next/link';
 import fbIcon from '../components/images/fb icon.ico';
 import twitterIcon from '../components/images/twitter icon.png';
 import gmailIcom from '../components/images/gmail icon.ico';
+import { Inputs } from '../components/input/input';
 
 export default () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [checked, setChecked] = useState(false);
-    
-    function changeEmail(e: React.ChangeEvent<HTMLInputElement>) {
-        setEmail(e.target.value);
-    };
-    
-    function changePassword(e: React.ChangeEvent<HTMLInputElement>) {
-        setPassword(e.target.value);
-    };
-    
-    function changeChecking(e: React.ChangeEvent<HTMLInputElement>) {
-        setChecked(e.target.checked);
-    }
-    
-    function login() {
-        console.log(`email ${email}, password ${password}`);
-    };
 
+    function login() {
+        email == '' || password == '' ? alert('error') : alert('registered!');
+    };
+    
     return <div className={styles.cont}>
                 <div className={styles.box}>
                     <h1>LOG IN</h1>
-                    <input type="email"
-                            placeholder='Username or Email Address' 
-                            className={styles.input} 
-                            value={email}
-                            onChange={changeEmail}
+                    <Inputs type='email' 
+                        placeholder='Username Or Email Address'
+                        value={email}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
                     />
-                    <input type="password" 
-                            placeholder='Password' 
-                            className={styles.input} 
-                            value={password}
-                            onChange={changePassword}
+                    <Inputs type='password' 
+                        placeholder='Password'
+                        value={password}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
                     />
                     <div className={styles.inner}>
                         <div className={styles.left}>
-                            <input type="checkbox" 
-                                    className={styles.checkbox}
-                                    checked={checked} 
-                                    onChange={changeChecking}
+                            <Inputs type='checkbox'
+                                className={styles.checkbox} 
+                                checked={checked}
+                                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setChecked(e.target.checked)}
                             />
                             <p>Remember Me</p>
                         </div>
                         <button className={styles.login}
-                                onClick={login}
+                            onClick={login}
                         >Log In</button>
                     </div>
                     <Link href={'../forgetPassword'}>Forget Password?</Link>
@@ -68,6 +55,4 @@ export default () => {
                     <Link href={'../createAccount'} >Create account!</Link>
                 </div>
             </div>
-
-            
 }
