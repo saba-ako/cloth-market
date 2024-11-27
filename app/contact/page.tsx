@@ -2,17 +2,18 @@
 
 import styles from './page.module.css';
 import img from '../components/images/contact img.avif';
-import { useState } from 'react';
+import { use, useState } from 'react';
+import { Inputs } from '../components/input/input';
 
 export default () => {
 
-    const [value, setValue] = useState('');
+    const [email, setEmail] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [message, setMessage] = useState('');
 
     function submit() {
-    };
-
-    function onchange(e: React.ChangeEvent<HTMLInputElement>) {
-        setValue(e.target.value);
+        email == '' || firstName == '' || lastName == '' ? alert('error') : alert('completed!');
     };
 
     return <div className={styles.cont}>
@@ -25,10 +26,25 @@ export default () => {
                         Email: info@my-domain.com
                     </p>
                     <div className={styles.message}>
-                        <input type="text" placeholder='First Name' value={value} onChange={onchange} />
-                        <input type="text" placeholder='Last Name*'  />
-                        <input type="email" placeholder='Email*'  />
-                        <textarea placeholder='Type your message here...'></textarea>
+                        <Inputs type='text' 
+                            placeholder='First Name'
+                            value={firstName}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFirstName(e.target.value)}
+                        />
+                        <Inputs type="text" 
+                            placeholder='Last Name*'
+                            value={lastName}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setLastName(e.target.value)}  
+                        />
+                        <Inputs type="email" 
+                            placeholder='Email*'
+                            value={email}
+                            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)} 
+                        />
+                        <textarea placeholder='Type your message here...'
+                            value={message}
+                            onChange={e => setMessage(e.target.value)}
+                        ></textarea>
                         <button onClick={submit}>SUBMIT</button>
                     </div>
                 </div>
