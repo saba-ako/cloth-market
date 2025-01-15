@@ -1,0 +1,21 @@
+.cont {
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 0 100px 100px 100px;
+    text-align: center;
+}
+
+.cont img {
+    all: unset;
+    width: 500px;
+    height: 500px;
+}
+
+.btns {
+    display: flex;
+    gap: 100px;
+}

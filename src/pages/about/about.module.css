@@ -1,0 +1,24 @@
+.cont {
+    display: flex;
+    gap: 20px;
+    height: 100vh;
+}
+
+.cont div {
+    padding: 0 100px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    font-size: 20px;
+}
+
+.cont h1 {
+    font-size: 50px;
+}
+
+.cont img {
+    width: 60%;
+}

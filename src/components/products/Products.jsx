@@ -1,0 +1,67 @@
+import { useEffect, useState } from "react";
+import { UseCustomHook } from "../../context/Context";
+import {
+  addElectronicsAction,
+  addItemsAction,
+  addJeweleriesAction,
+  addManClothesAction,
+  addWomanClothesAction,
+  showDetailsAction,
+} from "../../context/actionCreator";
+import styles from "./products.module.css";
+import { extraRoutePaths } from "../../constants/routePaths";
+
+export default () => {
+  const { state, dispatch, navigate } = UseCustomHook();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+
+    fetch(`https://fakestoreapi.com/products`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("error");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        dispatch(addItemsAction(data));
+        const jeweleries = data.filter((e) => e.category === "jewelery");
+        const menClothes = data.filter((e) => e.category === `men's clothing`);
+        const womenClothes = data.filter(
+          (e) => e.category === `women's clothing`
+        );
+        const electronics = data.filter((e) => e.category === "electronics");
+        dispatch(addJeweleriesAction(jeweleries));
+        dispatch(addManClothesAction(menClothes));
+        dispatch(addWomanClothesAction(womenClothes));
+        dispatch(addElectronicsAction(electronics));
+      })
+      .catch((err) => setError(err.message))
+      .finally(() => setLoading(false));
+  }, []);
+
+  return (
+    <div className={styles.cont}>
+      {loading && <h1>Loading...</h1>}
+      {error && <h1> {error}</h1>}
+      {state.option.map((e) => (
+        <div className={styles.box} key={e.id}>
+          <img src={e.image} />
+          <p
+            className={styles.title}
+            onClick={() => {
+              navigate(extraRoutePaths.details);
+              dispatch(showDetailsAction(e));
+            }}
+          >
+            {e.title}
+          </p>
+          <p>{e.price}$</p>
+        </div>
+      ))}
+    </div>
+  );
+};
