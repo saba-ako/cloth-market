@@ -50,16 +50,22 @@ export default () => {
       {loading && <h1>Loading...</h1>}
       {error && <h1> {error}</h1>}
       {state.option.map((e) => (
-        <div
-          className={styles.box}
-          key={e.id}
-          onClick={() => {
-            navigate(extraRoutePaths.details);
-            dispatch(showDetailsAction(e));
-          }}
-        >
-          <img src={e.image} />
-          <p>{e.title}</p>
+        <div className={styles.box} key={e.id}>
+          <img
+            src={e.image}
+            onClick={() => {
+              navigate(extraRoutePaths.details);
+              dispatch(showDetailsAction(e));
+            }}
+          />
+          <p
+            onClick={() => {
+              navigate(extraRoutePaths.details);
+              dispatch(showDetailsAction(e));
+            }}
+          >
+            {e.title}
+          </p>
           <p>{e.price}$</p>
           <AddToCardBtn />
         </div>

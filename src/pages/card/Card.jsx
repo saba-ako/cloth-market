@@ -1,21 +1,11 @@
-import Button from "../../components/btn/Button";
-import { extraRoutePaths } from "../../constants/routePaths";
 import { UseCustomHook } from "../../context/Context";
 import styles from "./card.module.css";
 
 export default () => {
-  const { state, navigate } = UseCustomHook();
+  const { state } = UseCustomHook();
   return (
     <div className={styles.cont}>
-      {state.card.length === 0 && (
-        <div>
-          <h1>You don't have an account! please create account first!</h1>
-          <Button
-            title="Create Account"
-            onclick={() => navigate(extraRoutePaths.createAccount)}
-          />
-        </div>
-      )}
+      <h1>{state.card.length} products</h1>
       <div className={styles.box}>
         {state.card.map((e) => (
           <div key={e.id} className={styles.item}>

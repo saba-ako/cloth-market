@@ -1,20 +1,25 @@
 import {
   addElectronics,
-  addEmail,
   addItemInCard,
   addItems,
   addJeweleries,
   addLatestItems,
   addManClothes,
-  addPassword,
-  addUserName,
   addWomanClothes,
+  auth,
   buy,
-  confirmPassword,
   optionMapping,
   showDetails,
-  types,
+  signUp,
 } from "./types";
+
+export function authAction(token) {
+  return { type: auth, payload: token };
+}
+
+export function signUpAction(data) {
+  return { type: signUp, payload: data };
+}
 
 export function addItemsAction(payload) {
   return { type: addItems, payload };

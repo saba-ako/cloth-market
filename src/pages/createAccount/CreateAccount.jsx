@@ -1,9 +1,9 @@
 import styles from "./createAccount.module.css";
 import Button from "../../components/btn/Button";
 import Input from "../../components/input/Input";
-import { UseCustomHook } from "../../context/Context";
 import { authHandler } from "../../api/auth";
 import { useState } from "react";
+import { authAction } from "../../constants/authAction.";
 
 export default () => {
   const [error, setError] = useState("");
@@ -15,14 +15,14 @@ export default () => {
   });
 
   const onchange = (e) => {
-    const {name, value} = e.target;
+    const { name, value } = e.target;
     setUser((prev) => ({ ...prev, [name]: value }));
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
     setLoading(true);
-    authHandler("register", user)
+    authHandler(authAction.signUp, user)
       .then((data) => console.log(data))
       .catch((err) => setError(err.msg))
       .finally(() => setLoading(false));

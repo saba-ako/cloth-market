@@ -7,7 +7,6 @@ import {
   addManClothes,
   addWomanClothes,
   buy,
-  confirmPassword,
   optionMapping,
   showDetails,
 } from "./types";
@@ -17,7 +16,6 @@ export const initilState = {
   details: {},
   items: [],
   latestItems: [],
-  confirmedPassword: "",
   menClothes: [],
   womenClothes: [],
   electronics: [],
@@ -26,6 +24,8 @@ export const initilState = {
   title: "All Products",
   amount: 0,
   buyItem: {},
+  user: null,
+  userIsLoggedIn: false,
 };
 
 export default (state, action) => {
@@ -48,9 +48,6 @@ export default (state, action) => {
 
     case addLatestItems:
       return { ...state, latestItems: payload };
-
-    case confirmPassword:
-      return { ...state, confirmedPassword: payload };
 
     case addJeweleries:
       return { ...state, jeweleries: payload };

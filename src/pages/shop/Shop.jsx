@@ -2,12 +2,9 @@ import styles from "./shop.module.css";
 import SearchBar from "./searchBar/SearchBar";
 import Products from "../../components/products/Products";
 import { UseCustomHook } from "../../context/Context";
-import { useState } from "react";
 
 export default () => {
   const { state } = UseCustomHook();
-
-  console.log(state.option);
 
   return (
     <div className={styles.cont}>
