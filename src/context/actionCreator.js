@@ -16,18 +16,6 @@ import {
   types,
 } from "./types";
 
-export function addEmailAction(payload) {
-  return { type: addEmail, payload };
-}
-
-export function addPasswordAction(payload) {
-  return { type: addPassword, payload };
-}
-
-export function addUserNameAction(payload) {
-  return { type: addUserName, payload };
-}
-
 export function addItemsAction(payload) {
   return { type: addItems, payload };
 }
@@ -42,10 +30,6 @@ export function addLatestItemsAction(payload) {
 
 export function addItemInCardAction(payload) {
   return { type: addItemInCard, payload };
-}
-
-export function confirmPasswordAction(payload) {
-  return { type: confirmPassword, payload };
 }
 
 export function addManClothesAction(payload) {

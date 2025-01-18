@@ -60,6 +60,7 @@
 
 .box h2 {
     cursor: pointer;
+    color: black;
 }
 
 .box:nth-child(1) {

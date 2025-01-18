@@ -3,9 +3,10 @@ import styles from "./home.module.css";
 import Latest from "../../components/latest/Latest";
 import Products from "../../components/products/Products";
 import { UseCustomHook } from "../../context/Context";
+import { routePaths } from "../../constants/routePaths";
 
 export default () => {
-  const { state } = UseCustomHook();
+  const { state, navigate } = UseCustomHook();
 
   return (
     <div className={styles.cont}>
@@ -15,13 +16,13 @@ export default () => {
       </Link>
       <div className={styles.inner2}>
         <div className={styles.box}>
-          <h2>The Cielo Story</h2>
+          <h2 onClick={() => navigate(routePaths.Contact)}>Contact Us</h2>
         </div>
         <div className={styles.box}>
-          <h2>View Our Collection</h2>
+          <h2 onClick={() => navigate(routePaths.Shop)}>View Our Collection</h2>
         </div>
         <div className={styles.box}>
-          <h2>Read About Us</h2>
+          <h2 onClick={() => navigate(routePaths.About)}>Read About Us</h2>
         </div>
       </div>
       <h1>LATEST ARRIVALS</h1>

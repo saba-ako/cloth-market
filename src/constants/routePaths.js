@@ -5,7 +5,6 @@ const Login = "/login";
 const Shop = "/shop";
 const createAccount = "/createAccount";
 const notFound = "*";
-const forgetPassword = "/forgetPassword";
 const Card = "/card";
 const details = "/details";
 const menClothes = "/shop/menClothes";
@@ -31,6 +30,5 @@ export const extraRoutePaths = {
   electronics,
   notFound,
   details,
-  forgetPassword,
   createAccount,
 };

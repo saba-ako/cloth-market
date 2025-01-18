@@ -1,6 +1,13 @@
 .cont {
+    min-height: 100vh;
     padding: 50px;
     background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.box {
     display: flex;
     flex-wrap: wrap;
     gap: 50px;

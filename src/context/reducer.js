@@ -1,13 +1,10 @@
 import {
   addElectronics,
-  addEmail,
   addItemInCard,
   addItems,
   addJeweleries,
   addLatestItems,
   addManClothes,
-  addPassword,
-  addUserName,
   addWomanClothes,
   buy,
   confirmPassword,
@@ -16,9 +13,6 @@ import {
 } from "./types";
 
 export const initilState = {
-  userName: "",
-  email: "",
-  password: "",
   card: [],
   details: {},
   items: [],
@@ -38,9 +32,6 @@ export default (state, action) => {
   const { type, payload, title } = action;
 
   switch (type) {
-    case addEmail:
-      return { ...state, email: payload };
-
     case addItemInCard:
       return { ...state, card: payload };
 
@@ -51,12 +42,6 @@ export default (state, action) => {
         option: payload,
         amount: payload.length,
       };
-
-    case addPassword:
-      return { ...state, password: payload };
-
-    case addUserName:
-      return { ...state, userName: payload };
 
     case showDetails:
       return { ...state, details: payload };

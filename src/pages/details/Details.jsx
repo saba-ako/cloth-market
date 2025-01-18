@@ -4,6 +4,7 @@ import { UseCustomHook } from "../../context/Context";
 import styles from "./details.module.css";
 import { extraRoutePaths, routePaths } from "../../constants/routePaths";
 import { addItemInCardAction, buyAction } from "../../context/actionCreator";
+import AddToCardBtn from "../../components/btn/AddToCardBtn";
 
 export default () => {
   const { state, dispatch, navigate } = UseCustomHook();
@@ -21,10 +22,7 @@ export default () => {
       <h3>{state.details.description}</h3>
       <h2>{state.details.price}$</h2>
       <div className={styles.btns}>
-        <Button
-          onclick={() => dispatch(addItemInCardAction(state.details))}
-          title="Add to Card"
-        />
+        <AddToCardBtn />
         <Button
           onclick={() => {
             dispatch(buyAction(state.details));

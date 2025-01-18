@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { UseCustomHook } from "../../context/Context";
 import {
   addElectronicsAction,
+  addItemInCardAction,
   addItemsAction,
   addJeweleriesAction,
   addManClothesAction,
@@ -10,6 +11,7 @@ import {
 } from "../../context/actionCreator";
 import styles from "./products.module.css";
 import { extraRoutePaths } from "../../constants/routePaths";
+import AddToCardBtn from "../btn/AddToCardBtn";
 
 export default () => {
   const { state, dispatch, navigate } = UseCustomHook();
@@ -48,18 +50,18 @@ export default () => {
       {loading && <h1>Loading...</h1>}
       {error && <h1> {error}</h1>}
       {state.option.map((e) => (
-        <div className={styles.box} key={e.id}>
+        <div
+          className={styles.box}
+          key={e.id}
+          onClick={() => {
+            navigate(extraRoutePaths.details);
+            dispatch(showDetailsAction(e));
+          }}
+        >
           <img src={e.image} />
-          <p
-            className={styles.title}
-            onClick={() => {
-              navigate(extraRoutePaths.details);
-              dispatch(showDetailsAction(e));
-            }}
-          >
-            {e.title}
-          </p>
+          <p>{e.title}</p>
           <p>{e.price}$</p>
+          <AddToCardBtn />
         </div>
       ))}
     </div>

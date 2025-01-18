@@ -5,7 +5,6 @@ import Card from "../pages/card/Card";
 import Contact from "../pages/contact/Contact";
 import CreateAccount from "../pages/createAccount/CreateAccount";
 import Details from "../pages/details/Details";
-import ForgetPassword from "../pages/forgetPassword/ForgetPassword";
 import Home from "../pages/home/Home";
 import Login from "../pages/login/Login";
 import notFound from "../pages/notFound/notFound";
@@ -19,7 +18,6 @@ export const routeComponents = [
   { path: routePaths.Shop, Component: Shop },
   { path: extraRoutePaths.createAccount, Component: CreateAccount },
   { path: extraRoutePaths.notFound, Component: notFound },
-  { path: extraRoutePaths.forgetPassword, Component: ForgetPassword },
   { path: routePaths.Card, Component: Card },
   { path: extraRoutePaths.details, Component: Details },
   { path: extraRoutePaths.buy, Component: Buy },

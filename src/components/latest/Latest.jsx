@@ -2,10 +2,13 @@ import { useEffect, useState } from "react";
 import styles from "./latest.module.css";
 import { UseCustomHook } from "../../context/Context";
 import {
+  addItemInCardAction,
   addLatestItemsAction,
   showDetailsAction,
 } from "../../context/actionCreator";
 import { extraRoutePaths } from "../../constants/routePaths";
+import Button from "../btn/Button";
+import AddToCardBtn from "../btn/AddToCardBtn";
 
 export default () => {
   const { state, dispatch, navigate } = UseCustomHook();
@@ -43,6 +46,7 @@ export default () => {
             {e.title}
           </p>
           <p>{e.price}$</p>
+          <AddToCardBtn />
         </div>
       ))}
     </div>

@@ -1,6 +1,3 @@
-const addEmail = "addEmail";
-const addPassword = "addPassword";
-const addUserName = "addUserName";
 const addItemInCard = "addItemInCard";
 const addLatestItems = "addLatestItems";
 const addItems = "addItems";
@@ -10,8 +7,8 @@ const addManClothes = "addManClothes";
 const addWomanClothes = "addWomanClothes";
 const addElectronics = "addElectronics";
 const addJeweleries = "addJeweleries";
-const optionMapping = 'optionMapping';
-const buy = 'buy'
+const optionMapping = "optionMapping";
+const buy = "buy";
 
 export {
   buy,
@@ -21,9 +18,6 @@ export {
   addWomanClothes,
   addJeweleries,
   confirmPassword,
-  addEmail,
-  addPassword,
-  addUserName,
   addItemInCard,
   addItems,
   addLatestItems,
