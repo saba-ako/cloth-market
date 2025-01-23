@@ -8,12 +8,16 @@ const addElectronics = "addElectronics";
 const addJeweleries = "addJeweleries";
 const optionMapping = "optionMapping";
 const buy = "buy";
-const signUp = "sign-up";
+const login = "sign-up";
+const logout = "logout";
 const auth = "auth";
+const removeFromCard = "removeFromCard";
 
 export {
+  removeFromCard,
+  logout,
   auth,
-  signUp,
+  login,
   buy,
   optionMapping,
   addElectronics,

@@ -8,55 +8,76 @@ import {
   addWomanClothes,
   auth,
   buy,
+  login,
   optionMapping,
+  removeFromCard,
   showDetails,
-  signUp,
 } from "./types";
 
-export function authAction(token) {
+function authAction(token) {
   return { type: auth, payload: token };
 }
 
-export function signUpAction(data) {
-  return { type: signUp, payload: data };
+function loginAction(data) {
+  return { type: login, payload: data };
 }
 
-export function addItemsAction(payload) {
+function addItemsAction(payload) {
   return { type: addItems, payload };
 }
 
-export function showDetailsAction(payload) {
+function showDetailsAction(payload) {
   return { type: showDetails, payload };
 }
 
-export function addLatestItemsAction(payload) {
+function addLatestItemsAction(payload) {
   return { type: addLatestItems, payload };
 }
 
-export function addItemInCardAction(payload) {
+function addItemInCardAction(payload) {
   return { type: addItemInCard, payload };
 }
 
-export function addManClothesAction(payload) {
+function addManClothesAction(payload) {
   return { type: addManClothes, payload };
 }
 
-export function addWomanClothesAction(payload) {
+function addWomanClothesAction(payload) {
   return { type: addWomanClothes, payload };
 }
 
-export function addJeweleriesAction(payload) {
+function addJeweleriesAction(payload) {
   return { type: addJeweleries, payload };
 }
 
-export function addElectronicsAction(payload) {
+function addElectronicsAction(payload) {
   return { type: addElectronics, payload };
 }
 
-export function optionMappingAction(payload, title) {
+function optionMappingAction(payload, title) {
   return { type: optionMapping, payload, title };
 }
 
-export function buyAction(payload) {
+function buyAction(payload) {
   return { type: buy, payload };
 }
+
+function removeFromCardAction(payload) {
+  return { type: removeFromCard, payload };
+}
+
+export {
+  removeFromCardAction,
+  loginAction,
+  addItemsAction,
+  addLatestItemsAction,
+  showDetailsAction,
+  buyAction,
+  optionMappingAction,
+  addElectronicsAction,
+  addJeweleriesAction,
+  addWomanClothesAction,
+  addManClothesAction,
+  addItemInCardAction,
+  authAction,
+};

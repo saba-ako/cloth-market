@@ -10,13 +10,15 @@ import {
   showDetailsAction,
 } from "../../context/actionCreator";
 import styles from "./products.module.css";
-import { extraRoutePaths } from "../../constants/routePaths";
+import { extraRoutePaths, routePaths } from "../../constants/routePaths";
 import AddToCardBtn from "../btn/AddToCardBtn";
+import Modal from "../modal/Modal";
 
 export default () => {
   const { state, dispatch, navigate } = UseCustomHook();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -67,7 +69,22 @@ export default () => {
             {e.title}
           </p>
           <p>{e.price}$</p>
-          <AddToCardBtn />
+          <AddToCardBtn
+            onclick={() => {
+              if (state.user !== null) {
+                const exists =
+                  state.card.filter((item) => item.id === e.id).length > 0;
+
+                if (!exists) {
+                  dispatch(addItemInCardAction(e));
+                }
+              } else {
+                setShowModal(true);
+              }
+            }}
+          />
+
+          {showModal && <Modal setter={setShowModal} />}
         </div>
       ))}
     </div>

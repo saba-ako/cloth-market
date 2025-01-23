@@ -1,5 +1,5 @@
-import { optionMappingAction } from "../../../context/actionCreator";
-import { UseCustomHook } from "../../../context/Context";
+import { optionMappingAction } from "../../context/actionCreator";
+import { UseCustomHook } from "../../context/Context";
 import styles from "./searchBar.module.css";
 
 export default () => {
@@ -10,7 +10,7 @@ export default () => {
       <h2>Browse by</h2>
       <p
         onClick={() => {
-          dispatch(optionMappingAction(state.items, 'All Products'));
+          dispatch(optionMappingAction(state.items, "All Products"));
         }}
       >
         All Products
@@ -31,23 +31,18 @@ export default () => {
       </p>
       <p
         onClick={() => {
-          dispatch(optionMappingAction(state.jeweleries, 'Jeweleries'));
+          dispatch(optionMappingAction(state.jeweleries, "Jeweleries"));
         }}
       >
         Jeweleries
       </p>
       <p
         onClick={() => {
-          dispatch(optionMappingAction(state.electronics, 'Electronics'));
+          dispatch(optionMappingAction(state.electronics, "Electronics"));
         }}
       >
         Electronics
       </p>
-      <h2>Filter By</h2>
-      <div>
-        <h3>Price</h3>
-        <button>+</button>
-      </div>
     </div>
   );
 };

@@ -3,9 +3,14 @@ import Button from "../../components/btn/Button";
 import Input from "../../components/input/Input";
 import { authHandler } from "../../api/auth";
 import { useState } from "react";
-import { authAction } from "../../constants/authAction.";
+import { authActions } from "../../constants/authActions.";
+import { UseCustomHook } from "../../context/Context";
+import { routePaths } from "../../constants/routePaths";
 
 export default () => {
+  const { navigate } = UseCustomHook();
+
+
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState({
@@ -22,8 +27,11 @@ export default () => {
   const submitHandler = (e) => {
     e.preventDefault();
     setLoading(true);
-    authHandler(authAction.signUp, user)
-      .then((data) => console.log(data))
+    authHandler(authActions.signUp, user)
+      .then((data) => {
+        console.log(data);
+        navigate(routePaths.Login, { state: { succes: true } });
+      })
       .catch((err) => setError(err.msg))
       .finally(() => setLoading(false));
   };

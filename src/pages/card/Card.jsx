@@ -9,8 +9,8 @@ export default () => {
       <div className={styles.box}>
         {state.card.map((e) => (
           <div key={e.id} className={styles.item}>
-            <p>{e.title}</p>
             <img src={e.image} />
+            <p className={styles.title}>{e.title}</p>
             <p>{e.price}$</p>
           </div>
         ))}

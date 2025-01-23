@@ -1,3 +1,4 @@
+import { jwtDecode } from "jwt-decode";
 import {
   addElectronics,
   addItemInCard,
@@ -6,10 +7,15 @@ import {
   addLatestItems,
   addManClothes,
   addWomanClothes,
+  auth,
   buy,
+  login,
+  logout,
   optionMapping,
+  removeFromCard,
   showDetails,
 } from "./types";
+import { toggleLocalStorage } from "../utils/jwt";
 
 export const initilState = {
   card: [],
@@ -25,7 +31,7 @@ export const initilState = {
   amount: 0,
   buyItem: {},
   user: null,
-  userIsLoggedIn: false,
+  isAuthenticated: false,
 };
 
 export default (state, action) => {
@@ -33,7 +39,41 @@ export default (state, action) => {
 
   switch (type) {
     case addItemInCard:
-      return { ...state, card: payload };
+      return {
+        ...state,
+        card: [...state.card, payload],
+      };
+
+    case auth:
+      const user = jwtDecode(payload);
+      return {
+        ...state,
+        isAuthenticated: true,
+        user: user,
+      };
+
+    case removeFromCard:
+      return {
+        ...state,
+      };
+
+    case login: {
+      const { token } = payload;
+      const user = jwtDecode(token);
+      toggleLocalStorage(token);
+      return {
+        ...state,
+        isAuthenticated: true,
+        user,
+      };
+    }
+
+    case logout:
+      toggleLocalStorage();
+      return {
+        isAuthenticated: false,
+        user: null,
+      };
 
     case addItems:
       return {
@@ -44,22 +84,40 @@ export default (state, action) => {
       };
 
     case showDetails:
-      return { ...state, details: payload };
+      return {
+        ...state,
+        details: payload,
+      };
 
     case addLatestItems:
-      return { ...state, latestItems: payload };
+      return {
+        ...state,
+        latestItems: payload,
+      };
 
     case addJeweleries:
-      return { ...state, jeweleries: payload };
+      return {
+        ...state,
+        jeweleries: payload,
+      };
 
     case addElectronics:
-      return { ...state, electronics: payload };
+      return {
+        ...state,
+        electronics: payload,
+      };
 
     case addManClothes:
-      return { ...state, menClothes: payload };
+      return {
+        ...state,
+        menClothes: payload,
+      };
 
     case addWomanClothes:
-      return { ...state, womenClothes: payload };
+      return {
+        ...state,
+        womenClothes: payload,
+      };
 
     case optionMapping:
       return {
@@ -70,7 +128,10 @@ export default (state, action) => {
       };
 
     case buy:
-      return { ...state, buyItem: payload };
+      return {
+        ...state,
+        buyItem: payload,
+      };
 
     default:
       return state;

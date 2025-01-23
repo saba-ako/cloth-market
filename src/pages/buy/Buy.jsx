@@ -5,6 +5,8 @@ import { routePaths } from "../../constants/routePaths";
 
 export default () => {
   const { state, navigate } = UseCustomHook();
+  console.log(state.buyItem);
+  
 
   useEffect(() => {
     if (Object.entries(state.buyItem).length === 0) {

@@ -7,14 +7,15 @@ import {
   showDetailsAction,
 } from "../../context/actionCreator";
 import { extraRoutePaths } from "../../constants/routePaths";
-import Button from "../btn/Button";
 import AddToCardBtn from "../btn/AddToCardBtn";
+import Modal from "../modal/Modal";
 
 export default () => {
   const { state, dispatch, navigate } = UseCustomHook();
   const [loading, setLoading] = useState(false);
   const { latestItems } = state;
   const [error, setError] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -36,7 +37,13 @@ export default () => {
       {error && <h1>{error}</h1>}
       {latestItems.map((e) => (
         <div key={e.id} className={styles.box}>
-          <img src={e.image} />
+          <img
+            src={e.image}
+            onClick={() => {
+              navigate(extraRoutePaths.details);
+              dispatch(showDetailsAction(e));
+            }}
+          />
           <p
             onClick={() => {
               navigate(extraRoutePaths.details);
@@ -46,7 +53,21 @@ export default () => {
             {e.title}
           </p>
           <p>{e.price}$</p>
-          <AddToCardBtn />
+          <AddToCardBtn
+            onclick={() => {
+              if (state.user !== null) {
+                const exists =
+                  state.card.filter((item) => item.id === e.id).length > 0;
+
+                if (!exists) {
+                  dispatch(addItemInCardAction(e));
+                }
+              } else {
+                setShowModal(true);
+              }
+            }}
+          />
+          {showModal && <Modal setter={setShowModal} />}
         </div>
       ))}
     </div>

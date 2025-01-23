@@ -1,13 +1,14 @@
-import { useEffect } from "react";
-import Button from "../../components/btn/Button";
+import { useEffect, useState } from "react";
 import { UseCustomHook } from "../../context/Context";
 import styles from "./details.module.css";
 import { extraRoutePaths, routePaths } from "../../constants/routePaths";
-import { addItemInCardAction, buyAction } from "../../context/actionCreator";
 import AddToCardBtn from "../../components/btn/AddToCardBtn";
+import BuyBtn from "../../components/btn/BuyBtn";
+import Modal from "../../components/modal/Modal";
 
 export default () => {
-  const { state, dispatch, navigate } = UseCustomHook();
+  const { state, navigate } = UseCustomHook();
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     if (Object.entries(state.details).length === 0) {
@@ -23,13 +24,16 @@ export default () => {
       <h2>{state.details.price}$</h2>
       <div className={styles.btns}>
         <AddToCardBtn />
-        <Button
+        <BuyBtn
           onclick={() => {
-            dispatch(buyAction(state.details));
-            navigate(extraRoutePaths.buy);
+            if (state.user !== null) {
+              navigate(extraRoutePaths.buy);
+            } else {
+              setShowModal(true);
+            }
           }}
-          title="Buy"
         />
+        {showModal && <Modal setter={setShowModal} />}
       </div>
     </div>
   );

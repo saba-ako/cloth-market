@@ -1,5 +1,5 @@
 import styles from "./shop.module.css";
-import SearchBar from "./searchBar/SearchBar";
+import SearchBar from "../../components/searchBar/SearchBar";
 import Products from "../../components/products/Products";
 import { UseCustomHook } from "../../context/Context";
 

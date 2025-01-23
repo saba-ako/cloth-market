@@ -6,7 +6,7 @@ import { UseCustomHook } from "../../context/Context";
 import { routePaths } from "../../constants/routePaths";
 
 export default () => {
-  const { state, navigate } = UseCustomHook();
+  const { navigate } = UseCustomHook();
 
   return (
     <div className={styles.cont}>

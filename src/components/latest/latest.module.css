@@ -27,6 +27,7 @@
 }
 
 .box img {
+    cursor: pointer;
     background-color: whitesmoke;
     width: 50%;
     height: 50%;

@@ -5,10 +5,10 @@
   flex-wrap: wrap;
   width: 100%;
   gap: 20px;
-  cursor: pointer;
 }
 
 .box {
+  cursor: pointer;
   padding: 10px;
   width: 350px;
   height: 350px;

@@ -1,4 +1,5 @@
 import { extraRoutePaths, routePaths } from "../constants/routePaths";
+import AuthGuard from "../guard/AuthGuard";
 import About from "../pages/about/About";
 import Buy from "../pages/buy/Buy";
 import Card from "../pages/card/Card";
@@ -18,7 +19,7 @@ export const routeComponents = [
   { path: routePaths.Shop, Component: Shop },
   { path: extraRoutePaths.createAccount, Component: CreateAccount },
   { path: extraRoutePaths.notFound, Component: notFound },
-  { path: routePaths.Card, Component: Card },
+  { path: routePaths.Card, Component: Card, Guard: AuthGuard },
   { path: extraRoutePaths.details, Component: Details },
   { path: extraRoutePaths.buy, Component: Buy },
 ];

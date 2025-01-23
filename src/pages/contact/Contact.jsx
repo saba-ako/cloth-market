@@ -18,10 +18,6 @@ export default () => {
           <br />
           Email: info@my-domain.com
         </p>
-        <div className={styles.message}>
-          <textarea placeholder="Type your message here..."></textarea>
-          <button onClick={() => {}}>SUBMIT</button>
-        </div>
       </div>
       <img src={img} width={"60%"} />
     </div>

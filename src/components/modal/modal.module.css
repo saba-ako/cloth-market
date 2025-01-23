@@ -1,0 +1,15 @@
+.cont {
+    width: 500px;
+    height: 500px;
+    position: fixed;
+    top: calc(50% - 250px);
+    left: calc(50% - 250px);
+    background-color: black;
+    color: yellow;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
