@@ -2,6 +2,7 @@ const Home = "/";
 const About = "/about";
 const Contact = "/contact";
 const Login = "/login";
+const Logout = "/Logout";
 const Shop = "/shop";
 const createAccount = "/createAccount";
 const notFound = "*";
@@ -11,7 +12,6 @@ const menClothes = "/shop/menClothes";
 const womenClothes = "/shop/womenClothes";
 const jeweleries = "/shop/jeweleries";
 const electronics = "/shop/electronics";
-const buy = "/buy";
 
 export const routePaths = {
   Home,
@@ -23,7 +23,7 @@ export const routePaths = {
 };
 
 export const extraRoutePaths = {
-  buy,
+  Logout,
   menClothes,
   womenClothes,
   jeweleries,

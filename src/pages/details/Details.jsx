@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { UseCustomHook } from "../../context/Context";
 import styles from "./details.module.css";
-import { extraRoutePaths, routePaths } from "../../constants/routePaths";
+import { routePaths } from "../../constants/routePaths";
 import AddToCardBtn from "../../components/btn/AddToCardBtn";
 import BuyBtn from "../../components/btn/BuyBtn";
 import Modal from "../../components/modal/Modal";
@@ -27,7 +27,8 @@ export default () => {
         <BuyBtn
           onclick={() => {
             if (state.user !== null) {
-              navigate(extraRoutePaths.buy);
+              alert("Congratulation! You bought this product!");
+              navigate(routePaths.Home);
             } else {
               setShowModal(true);
             }

@@ -10,8 +10,6 @@ import { routePaths } from "../../constants/routePaths";
 export default () => {
   const { navigate } = UseCustomHook();
 
-
-  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState({
     userName: "",
@@ -32,7 +30,7 @@ export default () => {
         console.log(data);
         navigate(routePaths.Login, { state: { succes: true } });
       })
-      .catch((err) => setError(err.msg))
+      .catch(() => alert("Invalid username, email or password!"))
       .finally(() => setLoading(false));
   };
 
@@ -60,7 +58,6 @@ export default () => {
         />
         <Button title="Sign Up  " type="submit" />
         {loading && <h1>Loading...</h1>}
-        {error && <h1>{error}</h1>}
       </div>
     </form>
   );

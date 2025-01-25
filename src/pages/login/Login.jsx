@@ -24,7 +24,7 @@ export default () => {
         dispatch(loginAction(data));
         navigate(routePaths.Home);
       })
-      .catch((err) => console.log(err))
+      .catch(() => alert('Invalid userName or password!'))
       .finally(() => setLoading(false));
   }
 
@@ -58,7 +58,7 @@ export default () => {
         >
           Create account!
         </button>
-        {loading && <h1>Loading...</h1>}
+        {loading && <h1>please wait</h1>}
       </div>
     </form>
   );

@@ -1,15 +1,9 @@
-import { UseCustomHook } from "../../context/Context";
 import Button from "./Button";
 
-export default ({onclick}) => {
-
-  const { navigate, state } = UseCustomHook();
+export default ({ onclick }) => {
   return (
     <>
-      <Button
-        title="Buy"
-        onclick={onclick}
-      />
+      <Button title="Buy" onclick={onclick} />
     </>
   );
 };
