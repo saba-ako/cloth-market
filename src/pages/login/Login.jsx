@@ -8,8 +8,11 @@ import { loginAction } from "../../context/actionCreator";
 import { authActions } from "../../constants/authActions.";
 
 export default () => {
-  const { navigate, dispatch } = UseCustomHook();
+  const { navigate, dispatch,state } = UseCustomHook();
   const [loading, setLoading] = useState(false);
+
+  console.log(state.user);
+  
 
   const [user, setUser] = useState({
     userName: "",
@@ -24,7 +27,7 @@ export default () => {
         dispatch(loginAction(data));
         navigate(routePaths.Home);
       })
-      .catch(() => alert('Invalid userName or password!'))
+      .catch(() => alert("Invalid userName or password!"))
       .finally(() => setLoading(false));
   }
 

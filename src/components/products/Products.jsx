@@ -74,7 +74,6 @@ export default () => {
               if (state.user !== null) {
                 const exists =
                   state.card.filter((item) => item.id === e.id).length > 0;
-
                 if (!exists) {
                   dispatch(addItemInCardAction(e));
                 }
@@ -83,7 +82,6 @@ export default () => {
               }
             }}
           />
-
           {showModal && <Modal setter={setShowModal} />}
         </div>
       ))}

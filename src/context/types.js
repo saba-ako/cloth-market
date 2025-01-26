@@ -7,7 +7,7 @@ const addWomanClothes = "addWomanClothes";
 const addElectronics = "addElectronics";
 const addJeweleries = "addJeweleries";
 const optionMapping = "optionMapping";
-const buy = "buy";
+const purchase = "purchase";
 const login = "sign-up";
 const logout = "logout";
 const auth = "auth";
@@ -18,7 +18,7 @@ export {
   logout,
   auth,
   login,
-  buy,
+  purchase,
   optionMapping,
   addElectronics,
   addManClothes,

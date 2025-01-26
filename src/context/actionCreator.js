@@ -7,7 +7,7 @@ import {
   addManClothes,
   addWomanClothes,
   auth,
-  buy,
+  purchase,
   login,
   optionMapping,
   removeFromCard,
@@ -58,8 +58,8 @@ function optionMappingAction(payload, title) {
   return { type: optionMapping, payload, title };
 }
 
-function buyAction(payload) {
-  return { type: buy, payload };
+function purchaseAction(payload) {
+  return { type: purchase, payload };
 }
 
 function removeFromCardAction(payload) {
@@ -72,7 +72,7 @@ export {
   addItemsAction,
   addLatestItemsAction,
   showDetailsAction,
-  buyAction,
+  purchaseAction,
   optionMappingAction,
   addElectronicsAction,
   addJeweleriesAction,

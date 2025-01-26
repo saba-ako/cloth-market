@@ -6,8 +6,10 @@ import { UseCustomHook } from "../../context/Context";
 import { routePaths } from "../../constants/routePaths";
 
 export default () => {
-  const { navigate } = UseCustomHook();
+  const {state, navigate } = UseCustomHook();
 
+  console.log(state.purchasedItems);
+  
   return (
     <div className={styles.cont}>
       <h1>Introducing Your New Workout Wardrobe</h1>

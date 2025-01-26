@@ -5,9 +5,13 @@ import { routePaths } from "../../constants/routePaths";
 import AddToCardBtn from "../../components/btn/AddToCardBtn";
 import BuyBtn from "../../components/btn/BuyBtn";
 import Modal from "../../components/modal/Modal";
+import {
+  addItemInCardAction,
+  purchaseAction,
+} from "../../context/actionCreator";
 
 export default () => {
-  const { state, navigate } = UseCustomHook();
+  const { state, navigate, dispatch } = UseCustomHook();
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
@@ -23,11 +27,24 @@ export default () => {
       <h3>{state.details.description}</h3>
       <h2>{state.details.price}$</h2>
       <div className={styles.btns}>
-        <AddToCardBtn />
+        <AddToCardBtn
+          onclick={() => {
+            if (state.user !== null) {
+              const exists =
+                state.card.filter((item) => item.id === state.details.id)
+                  .length > 0;
+              if (!exists) {
+                dispatch(addItemInCardAction(state.details));
+              }
+            } else {
+              setShowModal(true);
+            }
+          }}
+        />
         <BuyBtn
           onclick={() => {
             if (state.user !== null) {
-              alert("Congratulation! You bought this product!");
+              dispatch(purchaseAction(state.details));
               navigate(routePaths.Home);
             } else {
               setShowModal(true);

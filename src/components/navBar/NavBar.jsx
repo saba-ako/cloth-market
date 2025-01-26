@@ -1,11 +1,16 @@
 import styles from "./navBar.module.css";
-import { routePaths } from "../../constants/routePaths";
+import { extraRoutePaths, routePaths } from "../../constants/routePaths";
 import { UseCustomHook } from "../../context/Context";
+import basket from "../../images/basket.png";
+import acc from "../../images/acc.png";
+import AccModal from "../accModal/AccModal";
+import { useState } from "react";
 
 const links = Object.entries(routePaths);
 
 export default () => {
-  const { navigate } = UseCustomHook();
+  const { navigate, state } = UseCustomHook();
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <div className={styles.cont}>
@@ -27,21 +32,35 @@ export default () => {
             <path d="M92 140c2.5 0 4.5-2 4.5-4.5s-2-4.5-4.5-4.5-4.5 2-4.5 4.5 2 4.5 4.5 4.5"></path>
           </g>
         </svg>
-        <h1>Cielo Apparel</h1>
+        <h1 className={styles.title} onClick={() => navigate(routePaths.Home)}>
+          Cielo Apparel
+        </h1>
       </div>
       <div className={styles.right}>
         {links.map((link) => {
           const [key, value] = link;
-          return (
-            <button
-              key={key}
-              className={styles.link}
-              onClick={() => navigate(value)}
-            >
-              {key}
-            </button>
-          );
+          if ((state.user && key !== "Login") || !state.user) {
+            return (
+              <button
+                key={key}
+                className={styles.link}
+                onClick={() => navigate(value)}
+              >
+                {key}
+              </button>
+            );
+          }
         })}
+        <div>
+          <img src={basket} onClick={() => navigate(extraRoutePaths.Card)} />
+          <span>{state.card.length}</span>
+        </div>
+        <img
+          src={acc}
+          className={styles.acc}
+          onClick={() => setShowModal(!showModal)}
+        />
+        {showModal && <AccModal setter={setShowModal} />}
       </div>
     </div>
   );

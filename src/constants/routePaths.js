@@ -2,7 +2,6 @@ const Home = "/";
 const About = "/about";
 const Contact = "/contact";
 const Login = "/login";
-const Logout = "/Logout";
 const Shop = "/shop";
 const createAccount = "/createAccount";
 const notFound = "*";
@@ -17,13 +16,12 @@ export const routePaths = {
   Home,
   About,
   Contact,
-  Login,
   Shop,
-  Card,
+  Login,
 };
 
 export const extraRoutePaths = {
-  Logout,
+  Card,
   menClothes,
   womenClothes,
   jeweleries,

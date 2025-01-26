@@ -8,9 +8,8 @@ import {
   addManClothes,
   addWomanClothes,
   auth,
-  buy,
+  purchase,
   login,
-  logout,
   optionMapping,
   removeFromCard,
   showDetails,
@@ -29,7 +28,7 @@ export const initilState = {
   option: [],
   title: "All Products",
   amount: 0,
-  buyItem: {},
+  purchasedItems: [],
   user: null,
   isAuthenticated: false,
 };
@@ -55,6 +54,7 @@ export default (state, action) => {
     case removeFromCard:
       return {
         ...state,
+        card: state.card.filter((item) => item.id !== payload.id),
       };
 
     case login: {
@@ -67,13 +67,6 @@ export default (state, action) => {
         user,
       };
     }
-
-    case logout:
-      toggleLocalStorage();
-      return {
-        isAuthenticated: false,
-        user: null,
-      };
 
     case addItems:
       return {
@@ -127,10 +120,10 @@ export default (state, action) => {
         title: title,
       };
 
-    case buy:
+    case purchase:
       return {
         ...state,
-        buyItem: payload,
+        purchasedItems: [...state.purchasedItems, payload],
       };
 
     default:
