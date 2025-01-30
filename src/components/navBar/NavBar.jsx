@@ -11,6 +11,7 @@ const links = Object.entries(routePaths);
 export default () => {
   const { navigate, state } = UseCustomHook();
   const [showModal, setShowModal] = useState(false);
+  const [showOptions, setShowOptions] = useState(false);
 
   return (
     <div className={styles.cont}>
@@ -36,6 +37,43 @@ export default () => {
           Cielo Apparel
         </h1>
       </div>
+      <div className={styles.rightDisappear}>
+        <div
+          className={styles.burgerBtn}
+          onClick={() => setShowOptions(!showOptions)}
+        >
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+      {showOptions && (
+        <div className={styles.options}>
+          {links.map((link) => {
+            const [key, value] = link;
+            if ((state.user && key !== "Login") || !state.user) {
+              return (
+                <button
+                  key={key}
+                  className={styles.link}
+                  onClick={() => navigate(value)}
+                >
+                  {key}
+                </button>
+              );
+            }
+          })}
+          <div>
+            <img src={basket} onClick={() => navigate(extraRoutePaths.Card)} />
+            <span>{state.card.length}</span>
+          </div>
+          <img
+            src={acc}
+            className={styles.acc}
+            onClick={() => setShowModal(!showModal)}
+          />
+        </div>
+      )}
       <div className={styles.right}>
         {links.map((link) => {
           const [key, value] = link;

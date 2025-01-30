@@ -35,6 +35,7 @@ export default () => {
                   .length > 0;
               if (!exists) {
                 dispatch(addItemInCardAction(state.details));
+                localStorage.setItem("ItemInCard", state.details);
               }
             } else {
               setShowModal(true);
@@ -46,6 +47,7 @@ export default () => {
             if (state.user !== null) {
               dispatch(purchaseAction(state.details));
               navigate(routePaths.Home);
+              localStorage.setItem("purchasedItem", state.details);
             } else {
               setShowModal(true);
             }

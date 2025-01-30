@@ -1,85 +1,104 @@
 .cont {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-    align-items: center;
-    overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+  overflow: hidden;
+  text-align: center;
 }
 
 .cont h1 {
-    font-size: 50px;
+  font-size: 50px;
 }
 
 .inner1 {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    background-color: whitesmoke;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  background-color: whitesmoke;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
 .inner1 h1 {
-    text-align: center;
-    font-size: 50px;
-    color: #4A4A4A;
+  text-align: center;
+  font-size: 50px;
+  color: #4a4a4a;
 }
 
 .shop {
-    all: unset;
-    cursor: pointer;
-    border: 1px solid black;
-    font-size: 20px;
-    padding: 10px 30px;
+  all: unset;
+  cursor: pointer;
+  border: 1px solid black;
+  font-size: 20px;
+  padding: 10px 30px;
 }
 
 .shop:hover {
-    background-color: #4A4A4A;
-    color: white;
+  background-color: #4a4a4a;
+  color: white;
 }
 
 .inner2 {
-    width: 100%;
-    height: 500px;
-    display: flex;
-    gap: 10px;
+  width: 100%;
+  height: 500px;
+  display: flex;
+  gap: 10px;
 }
 
 .box {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 30px;
-    text-align: center;
-    color: white;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  text-align: center;
+  color: white;
 }
 
 .box h2 {
-    cursor: pointer;
-    color: black;
+  cursor: pointer;
+  color: black;
 }
 
 .box:nth-child(1) {
-    background-image: url(../../images/first\ img.avif);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+  background-image: url(../../images/first\ img.avif);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .box:nth-child(2) {
-    background-image: url(../../images/sec\ img.avif);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+  background-image: url(../../images/sec\ img.avif);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .box:nth-child(3) {
-    background-image: url(../../images/thitd\ img.avif);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
+  background-image: url(../../images/thitd\ img.avif);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 950px) {
+  .cont h1 {
+    font-size: 40px;
+  }
+
+  .inner2 {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .box {
+    width: 100%;
+    height: 50%;
+    background-position: inherit;
+  }
 }

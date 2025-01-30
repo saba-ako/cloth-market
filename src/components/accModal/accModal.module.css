@@ -22,3 +22,10 @@
     align-items: center;
     justify-content: center;
 }
+
+@media (max-width: 700px) {
+    .cont {
+        position: unset;
+        border: 1px solid red;
+    }
+}

@@ -1,5 +1,5 @@
 .cont {
-    background-color: whitesmoke;
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,4 +18,16 @@
 .btns {
     display: flex;
     gap: 100px;
+}
+
+@media(max-width:600px) {
+    .cont img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .btns {
+        flex-direction: column;
+        gap: 50px;
+    }
 }

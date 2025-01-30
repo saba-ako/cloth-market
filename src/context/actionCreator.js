@@ -34,10 +34,6 @@ function addLatestItemsAction(payload) {
   return { type: addLatestItems, payload };
 }
 
-function addItemInCardAction(payload) {
-  return { type: addItemInCard, payload };
-}
-
 function addManClothesAction(payload) {
   return { type: addManClothes, payload };
 }
@@ -59,10 +55,24 @@ function optionMappingAction(payload, title) {
 }
 
 function purchaseAction(payload) {
+  const existingPurchases =
+    JSON.parse(localStorage.getItem("purchasedItems")) || [];
+  const updatedPurchases = [...existingPurchases, payload];
+  localStorage.setItem("purchasedItems", JSON.stringify(updatedPurchases));
   return { type: purchase, payload };
 }
 
+function addItemInCardAction(payload) {
+  const existingCart = JSON.parse(localStorage.getItem("cartItems")) || [];
+  const updatedCart = [...existingCart, payload];
+  localStorage.setItem("cartItems", JSON.stringify(updatedCart));
+  return { type: addItemInCard, payload };
+}
+
 function removeFromCardAction(payload) {
+  const existingCart = JSON.parse(localStorage.getItem("cartItems")) || [];
+  const updatedCart = existingCart.filter((item) => item.id !== payload.id);
+  localStorage.setItem("cartItems", JSON.stringify(updatedCart));
   return { type: removeFromCard, payload };
 }
 

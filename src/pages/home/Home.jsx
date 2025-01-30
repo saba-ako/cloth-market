@@ -7,8 +7,6 @@ import { routePaths } from "../../constants/routePaths";
 
 export default () => {
   const {state, navigate } = UseCustomHook();
-
-  console.log(state.purchasedItems);
   
   return (
     <div className={styles.cont}>

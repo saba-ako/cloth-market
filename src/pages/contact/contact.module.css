@@ -64,3 +64,16 @@
 .cont button:active {
     background-color: #959595;
 }
+
+@media (max-width:1000px) {
+    .cont {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+    }
+
+    .cont div {
+        width: 100%;
+    }
+}

@@ -9,34 +9,6 @@
   gap: 10px;
 }
 
-.priceFilter {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.filterDiv {
-  width: 100%;
-  padding: 10px 0;
-  border-bottom: 1px solid;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.filterDiv div {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.showFilter {
-  all: unset;
-  cursor: pointer;
-  font-size: 30px;
-}
-
 .cont h2 {
   border-bottom: 1px solid;
   padding-bottom: 10px;
@@ -54,4 +26,17 @@
 
 .cont p:active {
   color: rgb(107, 107, 107);
+}
+
+
+@media(max-width:700px) {
+  .cont {
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    height: 300px;
+    padding: 10px;
+  }
+
 }

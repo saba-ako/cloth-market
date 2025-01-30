@@ -22,3 +22,16 @@
 .cont img {
     width: 60%;
 }
+
+@media (max-width:1100px) {
+    .cont {
+        flex-direction: column;
+        height: fit-content;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cont div {
+        width: 100%;
+    }
+}

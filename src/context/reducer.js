@@ -17,7 +17,7 @@ import {
 import { toggleLocalStorage } from "../utils/jwt";
 
 export const initilState = {
-  card: [],
+  card: JSON.parse(localStorage.getItem("cartItems")) || [],
   details: {},
   items: [],
   latestItems: [],
@@ -28,7 +28,7 @@ export const initilState = {
   option: [],
   title: "All Products",
   amount: 0,
-  purchasedItems: [],
+  purchasedItems: JSON.parse(localStorage.getItem("purchasedItems")) || [],
   user: null,
   isAuthenticated: false,
 };
@@ -38,9 +38,11 @@ export default (state, action) => {
 
   switch (type) {
     case addItemInCard:
+      const updatedCartAdd = [...state.card, payload];
+      localStorage.setItem("cartItems", JSON.stringify(updatedCartAdd));
       return {
         ...state,
-        card: [...state.card, payload],
+        card: updatedCartAdd,
       };
 
     case auth:
@@ -52,9 +54,13 @@ export default (state, action) => {
       };
 
     case removeFromCard:
+      const updatedCartRemove = state.card.filter(
+        (item) => item.id !== payload.id
+      );
+      localStorage.setItem("cartItems", JSON.stringify(updatedCartRemove));
       return {
         ...state,
-        card: state.card.filter((item) => item.id !== payload.id),
+        card: updatedCartRemove,
       };
 
     case login: {
@@ -121,9 +127,14 @@ export default (state, action) => {
       };
 
     case purchase:
+      const updatedPurchasedItems = [...state.purchasedItems, payload];
+      localStorage.setItem(
+        "purchasedItems",
+        JSON.stringify(updatedPurchasedItems)
+      );
       return {
         ...state,
-        purchasedItems: [...state.purchasedItems, payload],
+        purchasedItems: updatedPurchasedItems,
       };
 
     default:

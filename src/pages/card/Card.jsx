@@ -32,7 +32,7 @@ export default () => {
             <p>{e.price}$</p>
             <Button
               title="Remove"
-              onClick={() => dispatch(removeFromCardAction(e))}
+              onclick={() => dispatch(removeFromCardAction(e))}
             />
           </div>
         ))}
